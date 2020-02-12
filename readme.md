@@ -1,7 +1,8 @@
 zudash
 ====
 
-Categorize your properties.
+Categorize your properties. <br>
+(Concept only repository)
 
 
 ```ts
