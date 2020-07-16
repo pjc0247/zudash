@@ -36,3 +36,16 @@ export function pick(obj: any, category: string, opts?: PickOptions) {
   });
   return picked;
 }
+
+type ExcludeOptions = {
+
+};
+export function exclude(obj: any, category: string, opts?: ExcludeOptions) {
+  const picked = {} as any;
+  Object.getOwnPropertyNames(obj).forEach((key) => {
+    const categories = getPropertyDecoraters(obj.constructor.name, key);
+    if (!categories.includes(category))
+      picked[key] = obj[key];
+  });
+  return picked;
+}
