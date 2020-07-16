@@ -2,14 +2,12 @@ zudash
 ====
 
 Categorize your properties. <br>
-(Concept only repository)
 
 
 ```ts
 class Person {
     @editable()
     public name: string;
-
     public email: string;
 }
 ```
@@ -18,8 +16,8 @@ let p: Person = {
     name: 'zuzu', email: 'pjc0247@naver.com'
 };
 
-// email should not be updated
-_.updateProperties(p, {
+// email won't be updated
+_.update(p, {
     name: 'zhuzhu',
     email: 'pjc0247@gmail.com'
 });
@@ -40,7 +38,7 @@ class Person {
 }
 ```
 ```ts
-_.get('inventory');
+_.pick('inventory');
 /* {
     weapon: 'aa',
     shield: 'bb',
