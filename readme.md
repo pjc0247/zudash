@@ -93,3 +93,20 @@ class Foo {
     update2() { }
 }
 ```
+
+Ideation Stage
+----
+
+__Event__
+
+```ts
+class Logger {
+    @consumer()
+    sendLogsBatch() {
+        /* .... */
+    }
+}
+```
+```ts
+
+```
