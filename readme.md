@@ -79,3 +79,17 @@ class Foo {
 ```ts
 publish('greeting');
 ```
+
+Timer
+----
+
+```ts
+@subscriber
+class Foo {
+    @subscribe('every.5s')
+    update() { }
+    
+    @subscribe('every.1h')
+    update2() { }
+}
+```
