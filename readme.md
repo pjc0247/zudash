@@ -1,8 +1,10 @@
 zudash
 ====
 
-Categorize your properties. <br>
+A set of useful methods for TypeScript. <br>
 
+Property Categorizing
+----
 
 ```ts
 class Person {
@@ -23,8 +25,7 @@ _.update(p, {
 });
 ```
 
-Custom Categories
-----
+__Custom Categories__
 ```ts
 class Person {
     @category('inventory')
@@ -61,4 +62,20 @@ class WriteTask {
 w.do_work();
 w.do_work();
 w.do_work();
+```
+
+PubSub
+----
+
+```ts
+@subscriber
+class Foo {
+    @subscribe('greeting')
+    on_greeting() {
+        console.log('hello world!');
+    }
+}
+```
+```ts
+publish('greeting');
 ```
