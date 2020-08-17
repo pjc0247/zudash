@@ -1,5 +1,7 @@
 import { flow, FlowType } from './src/task';
 import { subscriber, subscribe } from './src/pubsub';
+// @ts-ignore
+require('./src/timer');
 
 function delay(ms: number) {
   return new Promise((resolve) => {
@@ -18,7 +20,7 @@ class Task {
     console.log("2");
   }
 
-  @subscribe('apple')
+  @subscribe('every.4s')
   bb() {
     console.log('Bo');
   }
