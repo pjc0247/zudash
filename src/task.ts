@@ -32,7 +32,7 @@ export function flow(type: FlowType = FlowType.OneAtOnce) {
   return function(cls: any, method: any, desc: PropertyDescriptor) {
     const m = desc.value;
     const key = `${cls}::${method}`;
-    desc.value = async (...args: any[]) => {
+    desc.value = async function(...args: any[]) {
       try {
         const pending_tasks = flow_data[key];
         if (pending_tasks && pending_tasks.length) {
@@ -41,7 +41,7 @@ export function flow(type: FlowType = FlowType.OneAtOnce) {
           flow_data[key] = [null];
         }
         
-        return await m(...args);
+        return await m.apply(this, args);
       } finally {
         flow_data[key].shift();
         flush_pending_tasks(key);
