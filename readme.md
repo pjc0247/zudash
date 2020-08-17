@@ -45,3 +45,20 @@ _.pick('inventory');
     cape: 'cc'
 } */
 ```
+
+Task
+----
+
+```ts
+class WriteTask {
+    @flow(FlowType.OneAtOnce)
+    async do_work() {
+        /* some io tasks here */
+    }
+}
+```
+```ts
+w.do_work();
+w.do_work();
+w.do_work();
+```
