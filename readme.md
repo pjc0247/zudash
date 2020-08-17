@@ -101,7 +101,7 @@ __Event__
 
 ```ts
 class Logger {
-    @consumer()
+    @consumer(10, '15s')
     sendLogsBatch() {
         /* .... */
     }
