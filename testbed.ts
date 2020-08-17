@@ -1,4 +1,5 @@
 import { flow, FlowType } from './src/task';
+import { subscriber, subscribe } from './src/pubsub';
 
 function delay(ms: number) {
   return new Promise((resolve) => {
@@ -8,12 +9,18 @@ function delay(ms: number) {
   });
 }
 
+@subscriber
 class Task {
   @flow(FlowType.Ignore)
   async foo() {
     console.log("1");
     await delay(1000);
     console.log("2");
+  }
+
+  @subscribe('apple')
+  bb() {
+    console.log('Bo');
   }
 }
 
