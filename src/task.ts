@@ -1,9 +1,9 @@
 const flow_data: Record<string, Array<any>> = {};
 
 export enum FlowType {
-  OneAtOnce = 'one_at_once',
-  Ignore = 'ignore',
-  Error = 'error',
+  OneAtOnce = 'one_at_once',  // one by one
+  Ignore = 'ignore',          // ignore trailing calls. method call won't be executed
+  Error = 'error',            // throw an exception on trailing calls
 };
 export function flow(type: FlowType = FlowType.OneAtOnce) {
   const flush_pending_tasks = (key: string) => {
