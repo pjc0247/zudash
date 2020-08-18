@@ -94,19 +94,46 @@ class Foo {
 }
 ```
 
+Debugging
+----
+
+__trace__
+```ts
+class Foo {
+    @trace()
+    queryUser(id: string, name: string) {
+        // ....
+    }
+}
+```
+
+__repl__<br>
+Start __REPL__ on method call.
+```ts
+class Foo {
+    @repl()
+    queryUser() {
+        // ...
+    }
+}
+```
+
 Ideation Stage
 ----
 
 __Event__
 
 ```ts
+@consumer()
 class Logger {
-    @consumer(10, '15s')
+    // will be executed every 15s,
+    // or 10+ events at event buffer.
+    @consume('exception_log', 10, '15s')
     sendLogsBatch() {
         /* .... */
     }
 }
 ```
 ```ts
-
+produce('exception_log', e);
 ```
