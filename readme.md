@@ -63,6 +63,9 @@ w.do_work();
 w.do_work();
 w.do_work();
 ```
+* __FlowType.OneAtOnce__ : one by one, trailing calls wait for previous execution.
+* __FlowType.Ignore__ : ignore all trailing calls during the execution.
+* __FlowType.Error__ : trailing calls will throw an excepion.
 
 PubSub
 ----
