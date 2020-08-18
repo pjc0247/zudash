@@ -1,6 +1,6 @@
 import { flow, FlowType } from './src/task';
 import { subscriber, subscribe } from './src/pubsub';
-import { breakpoint } from './src/repl';
+import { breakpoint, trace } from './src/debug';
 
 // @ts-ignore
 require('./src/timer');
@@ -16,8 +16,8 @@ function delay(ms: number) {
 @subscriber
 class Task {
   @flow(FlowType.Ignore)
-  @breakpoint()
-  async foo() {
+  @trace()
+  async foo(a: number, b: string) {
     console.log(this);
     console.log("1");
     await delay(1000);
@@ -31,7 +31,4 @@ class Task {
 }
 
 const t = new Task();
-t.foo();
-t.foo();
-t.foo();
-t.foo();
+t.foo(1, 'b');

@@ -3,7 +3,6 @@ const subscribers: Record<string, Array<any>> = {};
 
 export function subscriber(target: any) {
   const newType: any = function (...args: any) {
-    console.log("New: " + target.name); 
     return new target(...args);
   }
   newType.prototype = target.prototype;
@@ -18,7 +17,10 @@ export function subscribe(topic: string) {
   };
 }
 
-export function publish(topic: string, ...argg: any[]) {
+export function unsubscribe(obj: any) {
+
+}
+export function publish(topic: string, ...args: any[]) {
 
 }
 

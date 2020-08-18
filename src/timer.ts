@@ -1,7 +1,6 @@
 import { publish, get_all_subtopics } from "./pubsub";
 
 function set_timer_publisher(interval, topic) {
-  console.log('settimer '+ interval);
   setInterval(() => {
     publish(`every.${topic}`);
   }, interval * 1000);
